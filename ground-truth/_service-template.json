@@ -1,0 +1,21 @@
+{
+  "receiptId": "service-001",
+  "imageFile": "service-001.jpg",
+  "receiptType": "service",
+  "imageQuality": "clean",
+  "fields": {
+    "shop_name": "Joe's Auto Repair",
+    "date": "2026-04-15",
+    "service_descriptions": ["Oil Change", "Tire Rotation"],
+    "total_cost": 89.99,
+    "line_items": [
+      { "description": "Synthetic Oil Change", "amount": 49.99 },
+      { "description": "Tire Rotation", "amount": 29.99 },
+      { "description": "Shop Supplies", "amount": 5.01 },
+      { "description": "Tax", "amount": 5.00 }
+    ],
+    "tax": 5.00,
+    "payment_method": "Debit *5678"
+  },
+  "notes": "Set any field to null if it is not printed on the receipt."
+}

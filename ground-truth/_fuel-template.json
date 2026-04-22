@@ -1,0 +1,19 @@
+{
+  "receiptId": "fuel-001",
+  "imageFile": "fuel-001.jpg",
+  "receiptType": "fuel",
+  "imageQuality": "clean",
+  "fields": {
+    "date": "2026-04-20",
+    "total_cost": 45.23,
+    "volume": 12.345,
+    "price_per_unit": 3.459,
+    "fuel_type": "regular",
+    "octane": 87,
+    "payment_method": "VISA *1234",
+    "station_name": "Shell",
+    "station_address": "123 Main St, Anytown, ST 12345",
+    "pump_number": 4
+  },
+  "notes": "Set any field to null if it is not printed on the receipt. Use image_quality 'degraded' for faded, blurry, or poorly-lit photos."
+}

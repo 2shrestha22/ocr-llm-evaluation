@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.env
+results/*.json
+results/*.md
+
+# Keep receipt images and ground truth out of git (large binaries)
+corpus/fuel/*.jpg
+corpus/fuel/*.jpeg
+corpus/fuel/*.png
+corpus/service/*.jpg
+corpus/service/*.jpeg
+corpus/service/*.png
