@@ -61,14 +61,3 @@ export interface ReceiptScore {
   editsRequired: number;
   latencyMs: number;
 }
-
-export interface ValidationCheck {
-  name: string;
-  passed: boolean;
-  message: string;
-}
-
-export interface ValidationResult {
-  valid: boolean;
-  checks: ValidationCheck[];
-}

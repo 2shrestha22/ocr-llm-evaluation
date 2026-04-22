@@ -10,7 +10,6 @@ import { OpenAIProvider } from './providers/openai.js';
 import { generateReport, printReport } from './report.js';
 import { scoreReceipt } from './scorer.js';
 import type { ExtractionResult, GroundTruth, ReceiptScore, ReceiptType } from './types.js';
-import { validateExtraction } from './validation.js';
 
 // ---------------------------------------------------------------------------
 // Provider factory
@@ -93,7 +92,6 @@ async function runExtract(opts: {
     try {
       console.log(`── ${provider.name} ──`);
       const result = await provider.extract(base64, mimeType, opts.type);
-      const validation = validateExtraction(result.fields, opts.type);
 
       console.log(`  Latency: ${result.latencyMs} ms`);
       if (result.inputTokens) {
@@ -101,14 +99,6 @@ async function runExtract(opts: {
       }
       console.log('  Fields:', JSON.stringify(result.fields, null, 2));
       console.log('  Confidence:', JSON.stringify(result.confidences, null, 2));
-      console.log(
-        '  Validation:',
-        validation.valid ? 'PASSED' : 'FAILED',
-        validation.checks
-          .filter((c) => !c.passed)
-          .map((c) => c.message)
-          .join('; ') || '',
-      );
       console.log();
     } catch (err) {
       console.error(`  ${provider.name} error:`, (err as Error).message);

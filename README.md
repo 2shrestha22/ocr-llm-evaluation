@@ -11,7 +11,7 @@ cp .env.example .env
 # Add API keys for the providers you want to test
 ```
 
-> **Important**: For Gemini, use a *paid* API key (Vertex AI or billed `ai.google.dev`). The free AI Studio tier trains on submitted data.
+> **Important**: For Gemini, use a _paid_ API key (Vertex AI or billed `ai.google.dev`). The free AI Studio tier trains on submitted data.
 
 ## Quick test — single receipt
 
@@ -52,22 +52,22 @@ Edit the file to match what's printed on the receipt:
 
 ```json
 {
-  "receiptId": "fuel-001",
-  "imageFile": "fuel-001.jpg",
-  "receiptType": "fuel",
-  "imageQuality": "clean",
-  "fields": {
-    "date": "2026-04-20",
-    "total_cost": 45.23,
-    "volume": 12.345,
-    "price_per_unit": 3.459,
-    "fuel_type": "regular",
-    "octane": 87,
-    "payment_method": "VISA *1234",
-    "station_name": "Shell",
-    "station_address": "123 Main St, Anytown, ST 12345",
-    "pump_number": 4
-  }
+    "receiptId": "fuel-001",
+    "imageFile": "fuel-001.jpg",
+    "receiptType": "fuel",
+    "imageQuality": "clean",
+    "fields": {
+        "date": "2026-04-20",
+        "total_cost": 45.23,
+        "volume": 12.345,
+        "price_per_unit": 3.459,
+        "fuel_type": "regular",
+        "octane": 87,
+        "payment_method": "VISA *1234",
+        "station_name": "Shell",
+        "station_address": "123 Main St, Anytown, ST 12345",
+        "pump_number": 4
+    }
 }
 ```
 
@@ -93,23 +93,23 @@ npx tsx src/run-eval.ts eval -c ./my-corpus -g ./my-labels -o ./my-results
 
 The CLI prints a summary with acceptance criteria from the spike doc (§9):
 
-| Metric | Target |
-|--------|--------|
-| Clean receipt accuracy | ≥ 95% |
-| Degraded receipt accuracy | ≥ 75% |
-| Hallucination rate | ≤ 1% |
-| Median edits per receipt | ≤ 1 |
-| p95 latency | ≤ 5 s |
+| Metric                    | Target |
+| ------------------------- | ------ |
+| Clean receipt accuracy    | ≥ 95%  |
+| Degraded receipt accuracy | ≥ 75%  |
+| Hallucination rate        | ≤ 1%   |
+| Median edits per receipt  | ≤ 1    |
+| p95 latency               | ≤ 5 s  |
 
 Full results are saved as JSON in `results/`.
 
 ## Providers
 
-| Provider | Env var | Default model |
-|----------|---------|---------------|
-| Gemini | `GEMINI_API_KEY` | `gemini-2.5-flash` |
-| Claude | `ANTHROPIC_API_KEY` | `claude-haiku-4-5-20250514` |
-| OpenAI | `OPENAI_API_KEY` | `gpt-4o-mini` |
+| Provider | Env var             | Default model               |
+| -------- | ------------------- | --------------------------- |
+| Gemini   | `GEMINI_API_KEY`    | `gemini-2.5-flash`          |
+| Claude   | `ANTHROPIC_API_KEY` | `claude-haiku-4-5-20250514` |
+| OpenAI   | `OPENAI_API_KEY`    | `gpt-4o-mini`               |
 
 Override models via `GEMINI_MODEL`, `CLAUDE_MODEL`, `OPENAI_MODEL` in `.env`.
 
